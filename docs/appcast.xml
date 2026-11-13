@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><!-- sparkle-sign-warning:
 IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
---><rss version="2.0">
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
   <channel>
     <title>JerryTranslate</title>
     <link>https://wupinshuo.github.io/JerryTranslate-Releases/appcast.xml</link>
     <description>macOS · Apple Silicon</description>
+    <item>
+      <title>JerryTranslate 1.0.1</title>
+      <pubDate>Fri, 13 Nov 2026 17:58:52 +0000</pubDate>
+      <sparkle:version>101</sparkle:version>
+      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description># [⬇️ 下载安装 JerryTranslate 1.0.1](https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.1/JerryTranslate-1.0.1-arm64.zip)
+
+**适用于 Apple Silicon（M 系列芯片）Mac · macOS 26.0 或更高版本**
+
+下载后解压，将 `JerryTranslate.app` 拖入“应用程序”即可使用。安装包文件名为 `JerryTranslate-1.0.1-arm64.zip`；GitHub 自动生成的 `Source code` 是发布仓库快照，不是应用安装包。
+
+## JerryTranslate 1.0.1
+
+- 在线翻译密钥改为在设置中手动填写，可向开发者索取。填写一次后保存到系统钥匙串，不再随安装包分发。
+- 保存后仅显示密钥配置状态，支持更换和删除已保存的密钥。
+- 在线翻译未配置密钥时显示醒目的提示，点击“前往设置”直接定位密钥输入框；保存后自动恢复翻译入口。
+- 更换或删除密钥会取消正在进行的在线请求，防止旧结果覆盖当前内容。
+- 加强正式发布包保护：减少调试和反射信息，加入发布者身份与应用完整性校验，并在打包后再次验证交付文件。
+
+截图、OCR 与本地翻译继续在设备上处理。主动启用并提交在线翻译时，整段原文会发送至在线服务。此版本不引入账号系统或累计用量配额。
+</description>
+      <enclosure url="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.1/JerryTranslate-1.0.1-arm64.zip" length="3563814" type="application/octet-stream" sparkle:edSignature="TpYOzukEl9XqxVpWM5NoHmarsB11tkv6k5zA6yHC/HOUbpv6qSYLvIdvucCvzanADhknlTiSkXtqkvffLZW3AA=="></enclosure>
+    </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: IEwL6p6jD67yXjgB4Gluehgjk+68QxttANsIEgJHi4BjB48VjIeW0odDwi8eCVVUR/Gx+7TleDV/QGNC65QCDw==
-length: 511
+edSignature: xYQl3JsUl2vI0DDLiDgAHHOcIafVRPbddLzXUXcpqhP5hu1RhPgzP6YFo9xSaLeG7Rclg253+GJu3w3039JNAQ==
+length: 2534
 -->
