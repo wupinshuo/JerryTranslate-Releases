@@ -21,6 +21,6 @@
     document.getElementById('release-version').textContent = `正式版 ${version}`;
     document.getElementById('download-meta').textContent = `${release.tag_name} · Apple Silicon / arm64 · ZIP · ${(archive.size / 1024 / 1024).toFixed(2)} MB`;
   } catch {
-    // A timeout or rate limit leaves the verified v1.0.0 download available.
+    // A timeout or rate limit leaves the verified default download available.
   }
 })();
