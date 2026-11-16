@@ -4,3 +4,6 @@
 *.app/
 *.p12
 *.p8
+
+# 含姓名的原始收款码，只发布裁剪后的 cheese-*.png
+docs/zfb-*.jpg

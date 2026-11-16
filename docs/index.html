@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
   <title>JerryTranslate · Mac 截图与文字翻译工具</title>
   <meta name="description" content="下载 JerryTranslate：适用于 Apple Silicon Mac 的截图与文字翻译工具。框选屏幕或粘贴英文，即可得到简体中文译文，默认在设备上完成。">
   <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
@@ -20,41 +22,46 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="./app-icon.png">
   <link rel="apple-touch-icon" href="./app-icon.png">
-  <script src="./release.js" defer></script>
+  <script src="./release.js?v=2" defer></script>
   <style>
-    :root { color-scheme: light dark; font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --bg: #f5f5f7; --panel: #fff; --text: #202024; --muted: #5e5e68; --line: #dedee5; --link: #1959b7; --accent: #1959b7; --shadow: rgb(0 0 0 / .2); }
+    :root { color-scheme: light dark; interpolate-size: allow-keywords; font: 16px/1.75 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --bg: #f5f5f7; --panel: #fff; --text: #202024; --muted: #5e5e68; --line: #dedee5; --link: #1959b7; --accent: #1959b7; --shadow: rgb(0 0 0 / .2); }
     @media (prefers-color-scheme: dark) { :root { --bg: #171719; --panel: #222225; --text: #ececef; --muted: #b5b5c1; --line: #3c3c44; --link: #a4c8ff; --accent: #2f6fe4; --shadow: rgb(0 0 0 / .5); } }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--text); }
-    .page { width: min(960px, 100%); margin: 0 auto; padding: 40px 28px 28px; }
+    p { text-wrap: pretty; }
+    .page { width: min(1040px, 100%); margin: 0 auto; padding: 40px 28px 28px; }
     a { color: var(--link); text-underline-offset: 4px; }
     a:focus-visible, summary:focus-visible { outline: 3px solid var(--link); outline-offset: 5px; border-radius: 4px; }
     .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .top > a { font-size: 14px; }
+    .top nav a { display: inline-block; padding: 10px 0; font-size: 14px; }
+    .top nav span { display: inline-block; margin-left: 4px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 650; }
     .brand img { width: 40px; height: 40px; }
-    .brand a { color: inherit; text-decoration: none; }
-    .hero { padding: 64px 0 56px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 44px; align-items: center; padding: 56px 0 64px; }
     .tag { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
-    h1 { font-size: clamp(20px, 6.6vw, 46px); line-height: 1.35; letter-spacing: -.01em; margin: 0 0 18px; font-weight: 750; text-wrap: balance; }
-    .intro { color: var(--muted); font-size: 17px; max-width: 620px; margin: 0 0 30px; }
-    .download-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 28px; background: var(--accent); color: #fff; border-radius: 13px; font-size: 19px; font-weight: 700; text-decoration: none; }
+    h1 { font-size: clamp(20px, 6.6vw, 40px); line-height: 1.35; letter-spacing: -.01em; margin: 0 0 18px; font-weight: 750; text-wrap: balance; }
+    .intro { color: var(--muted); font-size: 17px; margin: 0 0 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 12px 28px; background: var(--accent); color: #fff; border-radius: 13px; font-size: 19px; font-weight: 700; text-decoration: none; transition: transform .15s ease, filter .2s ease; }
     .button:hover { filter: brightness(1.1); }
+    .button:active { transform: scale(.97); }
     .button svg { width: 22px; height: 22px; }
     .meta { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
     .platform-note { color: var(--text); padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); display: inline-block; }
     .platform-note[hidden] { display: none; }
-    .feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: 36px; align-items: center; margin-bottom: 56px; }
-    .feature.reverse { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); }
-    .feature.reverse .feature-text { order: 2; }
-    .feature h2 { margin: 0 0 10px; }
-    .feature p { color: var(--muted); margin: 0; }
-    .shortcut { margin-top: 14px !important; font-size: 14px; }
+    figure { margin: 0; }
+    figcaption, .shortcut { color: var(--muted); font-size: 14px; }
+    figcaption { margin-top: 18px; text-align: center; }
     kbd { font: inherit; color: var(--text); padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); margin-right: 6px; }
     .shot { display: block; width: 100%; height: auto; box-shadow: 0 0 0 1px var(--line), 0 20px 50px var(--shadow); }
-    .shot.capture { border-radius: 2.5% / 3.1%; }
-    .shot.text { border-radius: 1.7% / 2.4%; }
+    .shot.capture { border-radius: 2.8% / 2.4%; }
+    .shot.text { border-radius: 1.9% / 2.8%; }
+    /* Only the dark screenshots quote the novel, so the credit follows the dark theme. */
+    .credit { display: none; font-size: 12px; color: var(--muted); }
+    @media (prefers-color-scheme: dark) { .shot.capture { border-radius: 3.3% / 4.1%; } .credit, .feature .credit { display: block; margin-top: 8px; } }
+    .feature { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-bottom: 56px; }
+    .feature h2 { margin: 0 0 10px; }
+    .feature p { color: var(--muted); margin: 0; }
+    .feature .shortcut { margin-top: 14px; }
     .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
     .card p { color: var(--muted); font-size: 15px; margin: 0; }
@@ -68,66 +75,97 @@
     .steps strong { display: block; }
     .steps p { color: var(--muted); margin: 2px 0 0; }
     code { overflow-wrap: anywhere; }
-    .note { padding: 15px 18px; border-left: 3px solid var(--accent); background: var(--panel); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 14px; margin: 24px 0 0; }
     .faq details { border-top: 1px solid var(--line); padding: 14px 0; }
     .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq details::details-content { block-size: 0; overflow: clip; transition: block-size .3s ease, content-visibility .3s allow-discrete; }
+    .faq details[open]::details-content { block-size: auto; }
     .faq summary { cursor: pointer; font-weight: 600; }
     .faq details p { color: var(--muted); margin: 8px 0 0; }
-    .privacy p { color: var(--muted); margin: 10px 0; }
-    footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 20px; color: var(--muted); font-size: 14px; }
-    footer nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
-    footer p { margin-bottom: 0; }
+    .faq .more { color: var(--muted); font-size: 14px; margin: 16px 0 0; }
+    .cheese { scroll-margin-top: 24px; }
+    .cheese h2 { margin-bottom: 6px; }
+    .cheese > p { color: var(--muted); margin: 0; }
+    .tiers { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+    .tier { font: inherit; font-size: 15px; font-weight: 600; color: var(--text); display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; transition: transform .15s ease, background-color .2s ease, border-color .2s ease, color .2s ease; }
+    .tier:hover { border-color: var(--accent); }
+    .tier:active { transform: scale(.95); }
+    .tier:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+    .tier[aria-expanded="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .tier .bits { display: inline-block; transform-origin: 50% 80%; }
+    .tier:hover .bits, .tier[aria-expanded="true"] .bits { animation: nibble .5s ease; }
+    .code-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.2, .8, .2, 1); }
+    .code-panel.open { grid-template-rows: 1fr; }
+    .code-panel > div { overflow: hidden; min-height: 0; }
+    .code-card { display: flex; align-items: center; gap: 22px; margin-top: 16px; padding: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; opacity: 0; transform: translateY(-8px); transition: opacity .25s ease, transform .4s cubic-bezier(.2, .8, .2, 1); }
+    .code-panel.open .code-card { opacity: 1; transform: none; }
+    .code-card img { flex: none; width: 148px; height: 148px; padding: 8px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+    .code-card img.pop { animation: pop .45s cubic-bezier(.3, 1.5, .5, 1); }
+    .code-card strong { display: block; font-size: 17px; }
+    .code-card p { color: var(--muted); margin: 2px 0 0; }
+    .code-card .scan { font-size: 13px; margin-top: 10px; }
+    .scan .touch { display: none; }
+    @media (hover: none) { .scan .mouse { display: none; } .scan .touch { display: inline; } }
+    .cheese .fine { font-size: 14px; margin-top: 18px; }
+    @keyframes nibble { 30% { transform: rotate(-14deg) scale(1.15); } 60% { transform: rotate(10deg) scale(1.1); } }
+    @keyframes pop { from { transform: scale(.82); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after, .faq details::details-content { transition: none !important; animation: none !important; } }
+    footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 20px; color: var(--muted); font-size: 14px; text-align: center; }
+    footer p { margin: 0; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 36px; padding: 44px 0 48px; }
+      .hero figure { max-width: 460px; }
+    }
     @media (max-width: 720px) {
       .page { padding: 24px 20px; }
-      .hero { padding: 44px 0 40px; }
-      .feature, .feature.reverse { grid-template-columns: 1fr; gap: 20px; margin-bottom: 44px; }
-      .feature.reverse .feature-text { order: 0; }
+      .feature { grid-template-columns: 1fr; gap: 20px; margin-bottom: 44px; }
+      .feature .feature-text { order: -1; }
       .cards { grid-template-columns: 1fr; }
+      .code-card { flex-direction: column; text-align: center; gap: 14px; }
       .card { padding: 18px 20px; }
       section { margin-top: 36px; }
-      .download-row { gap: 14px; }
     }
   </style>
 </head>
 <body>
   <div class="page">
     <header class="top">
-      <div class="brand"><img src="./app-icon.png" width="40" height="40" alt=""><a href="./">JerryTranslate</a></div>
-      <a href="https://github.com/wupinshuo/JerryTranslate-Releases/releases">所有版本</a>
+      <div class="brand"><img src="./icon-96.png" width="40" height="40" alt="">JerryTranslate</div>
+      <nav aria-label="页面导航"><a href="#cheese">投喂作者<span aria-hidden="true">🧀</span></a></nav>
     </header>
 
     <main>
       <div class="hero">
-        <p class="tag">Mac 截图与文字翻译工具 · <span id="release-version">正式版 1.0.1</span></p>
-        <h1>框选屏幕，或粘贴一段英文。<br>让中文译文随手可得。</h1>
-        <p class="intro">截图识别、文字翻译，一键打开。英文译为简体中文，已有中文原样保留，默认在设备上完成识别与翻译。</p>
-        <div class="download-row">
+        <div>
+          <p class="tag">Mac 截图与文字翻译工具</p>
+          <h1>框选屏幕，或粘贴一段英文。<br>让中文译文随手可得。</h1>
+          <p class="intro">截图识别、文字翻译，一键打开。英文译为简体中文，默认在设备上完成识别与翻译。</p>
           <a class="button" id="download-link" href="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.1/JerryTranslate-1.0.1-arm64.zip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>
             下载安装
           </a>
-          <a id="release-notes-link" href="https://github.com/wupinshuo/JerryTranslate-Releases/releases/tag/v1.0.1">查看更新说明</a>
+          <p class="meta"><span id="download-meta">v1.0.1 · 3.40 MB</span> · 需要 Apple Silicon（M 系列芯片）与 macOS 26 或更高版本 · 已通过 Apple 签名与公证</p>
+          <p class="meta platform-note" id="platform-note" hidden>当前设备不是 Mac。请在 Mac 上打开本页面下载安装。</p>
         </div>
-        <p class="meta"><span id="download-meta">v1.0.1 · 3.40 MB</span> · 需要 Apple Silicon（M 系列芯片）与 macOS 26 或更高版本 · 已通过 Apple 签名与公证</p>
-        <p class="meta platform-note" id="platform-note" hidden>当前设备不是 Mac。请在 Mac 上打开本页面下载安装。</p>
+        <figure>
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="./shot-capture-dark.png" width="960" height="764">
+            <img class="shot capture" src="./shot-capture-light.png" width="1148" height="1368" alt="截图翻译窗口：显示识别出的英文原文和对应的中文结果">
+          </picture>
+          <figcaption><kbd>⌥⌘J</kbd>框选屏幕上的任意区域<span class="credit">示例文字出自小说《怦然心动》（Flipped）</span></figcaption>
+        </figure>
       </div>
 
       <article class="feature">
-        <div class="feature-text">
-          <h2>框选，即可翻译</h2>
-          <p>冻结画面后选择区域，识别英文与简繁中文，已有中文原样保留。</p>
-          <p class="shortcut"><kbd>⌥⌘J</kbd>截图翻译</p>
-        </div>
-        <img class="shot capture" src="./screenshot-capture.png" width="1106" height="886" alt="截图翻译窗口：识别出原文 Search，并给出中文结果“搜索”">
-      </article>
-
-      <article class="feature reverse">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="./shot-text-dark.png" width="1676" height="1114">
+          <img class="shot text" src="./shot-text-light.png" width="1676" height="1114" alt="文字翻译窗口：左侧是粘贴的英文原文，右侧是中文结果" loading="lazy">
+        </picture>
         <div class="feature-text">
           <h2>粘贴，继续翻译</h2>
           <p>粘贴、编辑英文，或将截图识别出的原文带入文字窗口继续处理。</p>
           <p class="shortcut"><kbd>⌥⌘T</kbd>文字翻译</p>
+          <p class="credit">示例文字出自小说《怦然心动》（Flipped）</p>
         </div>
-        <img class="shot text" src="./screenshot-text.png" width="1680" height="1200" alt="文字翻译窗口：左侧输入 hello world，右侧显示中文结果“你好，世界”" loading="lazy">
       </article>
 
       <div class="cards">
@@ -141,29 +179,42 @@
         <ol class="steps">
           <li><div><strong>下载并解压</strong><p>点击上方“下载安装”，打开下载的 <code>JerryTranslate-…-arm64.zip</code>。</p></div></li>
           <li><div><strong>拖入“应用程序”并打开</strong><p>将 <code>JerryTranslate.app</code> 拖入“应用程序”文件夹，双击启动后，从菜单栏图标进入。</p></div></li>
-          <li><div><strong>完成首次设置</strong><p>首次截图按系统提示授予屏幕录制权限；本地翻译按提示下载英语与简体中文资源。随后按快捷键或点击菜单栏图标开始翻译。</p></div></li>
+          <li><div><strong>完成首次设置</strong><p>首次截图按系统提示授予屏幕录制权限；本地翻译按提示下载英语与简体中文资源。之后按快捷键即可翻译。</p></div></li>
         </ol>
-        <p class="note">仅支持 Apple Silicon Mac，不支持 Intel。若从 GitHub Releases 下载，请选择 <code>JerryTranslate-…-arm64.zip</code>；“Source code” 是发布仓库快照，不是应用安装包。</p>
       </section>
 
       <section class="faq" aria-labelledby="faq-title">
         <h2 id="faq-title">常见问题</h2>
         <details><summary>支持哪些语言？</summary><p>目前将英文译为简体中文。截图可识别英文与简体、繁体中文，已有中文原样保留。</p></details>
+        <details><summary>会上传我的截图或文字吗？</summary><p>默认不会。OCR 与本地翻译在设备上完成，不保存翻译历史；检查更新时也不携带截图、原文或译文。</p></details>
         <details><summary>授予权限后仍然无法截图？</summary><p>在应用的设置中点击“打开屏幕录制设置”，确认已允许 JerryTranslate。如仍未生效，退出应用后重新打开。</p></details>
         <details><summary>如何更新？</summary><p>在菜单栏图标的菜单中选择“检查更新…”，或在设置中开启每日自动检查。下载与安装都由你确认。</p></details>
         <details><summary>如何卸载？</summary><p>退出应用后，将“应用程序”文件夹中的 JerryTranslate 移到废纸篓。</p></details>
+        <p class="more">没找到答案，或者遇到了问题？<a href="mailto:jerrywu0713@gmail.com?subject=JerryTranslate%20%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88">发邮件给作者</a></p>
       </section>
 
-      <section class="privacy" aria-labelledby="privacy-title">
-        <h2 id="privacy-title">隐私</h2>
-        <p>OCR 与本地翻译在设备上完成，不保存翻译历史。</p>
-        <p>检查更新只连接 GitHub Pages 与 GitHub Releases，不携带截图、原文或译文。</p>
+      <section class="cheese" id="cheese" aria-labelledby="cheese-title">
+        <h2 id="cheese-title">投喂作者 🧀</h2>
+        <p>JerryTranslate 免费使用。觉得顺手的话，挑一块奶酪投喂作者。</p>
+        <div class="tiers" role="group" aria-label="选择投喂档位">
+          <button type="button" class="tier" aria-expanded="false" aria-controls="code-panel" data-src="./cheese-1.png" data-name="一块奶酪" data-price="¥1" data-note="作者今晚少打一个哈欠"><span class="bits" aria-hidden="true">🧀</span>一块 · ¥1</button>
+          <button type="button" class="tier" aria-expanded="false" aria-controls="code-panel" data-src="./cheese-6.png" data-name="大块奶酪" data-price="¥6" data-note="多修一个 bug，大概"><span class="bits" aria-hidden="true">🧀🧀</span>大块 · ¥6</button>
+          <button type="button" class="tier" aria-expanded="false" aria-controls="code-panel" data-src="./cheese-18.png" data-name="奶酪拼盘" data-price="¥18" data-note="作者会认真考虑你的需求，并且睡不着"><span class="bits" aria-hidden="true">🧀🧀🧀</span>拼盘 · ¥18</button>
+        </div>
+        <div class="code-panel" id="code-panel" aria-live="polite" inert>
+          <div>
+            <div class="code-card">
+              <img id="code-image" src="./cheese-1.png" width="480" height="480" alt="" loading="lazy">
+              <div><strong id="code-name"></strong><p id="code-note"></p><p class="scan"><span class="mouse">用手机支付宝扫一扫</span><span class="touch">长按保存收款码，再用支付宝“扫一扫”从相册选取</span></p></div>
+            </div>
+          </div>
+        </div>
+        <p class="fine">投喂不解锁任何功能，只解锁作者的好心情。想催更？<a href="mailto:jerrywu0713@gmail.com?subject=%E3%80%90%E5%82%AC%E6%9B%B4%E3%80%91JerryTranslate&amp;body=%E6%88%91%E6%83%B3%E5%82%AC%E7%9A%84%E5%8A%9F%E8%83%BD%E6%98%AF%EF%BC%9A">告诉作者</a></p>
       </section>
     </main>
 
     <footer>
-      <nav aria-label="相关链接"><a href="https://github.com/wupinshuo/JerryTranslate-Releases/releases">所有版本</a><a href="https://github.com/wupinshuo/JerryTranslate-Releases/issues">问题反馈</a><a href="mailto:jerrywu0713@gmail.com">联系作者</a></nav>
-      <p>JerryTranslate · 为 Apple Silicon Mac 打造</p>
+      <p>Made by Jerry · 由奶酪驱动</p>
     </footer>
   </div>
 </body>

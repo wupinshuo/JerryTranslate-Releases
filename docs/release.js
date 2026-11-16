@@ -1,3 +1,34 @@
+// Payment codes: one at a time. A tier button opens its code, and a second click closes it.
+(() => {
+  const panel = document.getElementById('code-panel');
+  const image = document.getElementById('code-image');
+  const tiers = [...document.querySelectorAll('.tier')];
+  let current = null;
+  // The section sits at the page bottom, so follow the panel once it has finished growing.
+  panel.addEventListener('transitionend', event => {
+    if (event.target === panel && current) panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  });
+  for (const tier of tiers) {
+    // Fetch the code before the click so the opening animation never shows an empty frame.
+    tier.addEventListener('pointerenter', () => { new Image().src = tier.dataset.src; }, { once: true });
+    tier.addEventListener('click', () => {
+      current = current === tier ? null : tier;
+      for (const other of tiers) other.setAttribute('aria-expanded', String(other === current));
+      panel.classList.toggle('open', current !== null);
+      panel.inert = current === null;
+      if (!current) return;
+      const { src, name, price, note } = current.dataset;
+      image.src = src;
+      image.alt = `支付宝收款码：${name} ${price}`;
+      document.getElementById('code-name').textContent = `${name} · ${price}`;
+      document.getElementById('code-note').textContent = note;
+      image.classList.remove('pop');
+      void image.offsetWidth;
+      image.classList.add('pop');
+    });
+  }
+})();
+
 // The HTML ships a working default download; this only refreshes it from the published update feed.
 (async () => {
   const platform = navigator.userAgentData?.platform || navigator.platform || '';
@@ -26,8 +57,6 @@
     const size = Number(enclosure?.getAttribute('length'));
     if (enclosure?.getAttribute('url') !== downloadURL || !Number.isSafeInteger(size) || size <= 0) return;
     document.getElementById('download-link').href = downloadURL;
-    document.getElementById('release-notes-link').href = `${releaseRoot}/tag/v${version}`;
-    document.getElementById('release-version').textContent = `正式版 ${version}`;
     document.getElementById('download-meta').textContent = `v${version} · ${(size / 1024 / 1024).toFixed(2)} MB`;
   } catch {
     // A timeout or malformed feed leaves the default download in place.
