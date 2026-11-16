@@ -21,11 +21,11 @@ macOS 截图与文字翻译工具。本地模式以英文译简体中文为主�
 下载、安装由你确认；进行中的截图、翻译会暂缓更新，重启前会提醒处理文字草稿。
 更新包经 Developer ID 签名、公证，并通过 Sparkle EdDSA 验证；请仅从本仓库下载。
 
-下载页自动读取 GitHub 的最新正式版，并只选择 `JerryTranslate-<版本>-arm64.zip` 安装包。接口暂时不可用时，仍提供页面内置的已发布版本下载链接。
+下载页从本仓库已签名的更新源读取最新正式版，并只接受 `JerryTranslate-<版本>-arm64.zip` 安装包。更新源暂时读取失败时，仍提供页面内置的已发布版本下载链接。
 
 ## 隐私与反馈
 
-OCR 与本地翻译在设备上完成，不保存翻译历史。在线翻译默认关闭；启用并在文字窗口选择在线翻译后，提交的完整原文会发送至在线翻译服务。
+OCR 与本地翻译在设备上完成，不保存翻译历史。
 更新功能会连接 GitHub Pages / GitHub Releases，不携带截图、原文或译文。
 请通过 [Issues](https://github.com/wupinshuo/JerryTranslate-Releases/issues) 或 [jerrywu0713@gmail.com](mailto:jerrywu0713@gmail.com) 反馈，提交前移除截图中的个人信息。
 
