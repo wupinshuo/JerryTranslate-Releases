@@ -6,6 +6,32 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <link>https://wupinshuo.github.io/JerryTranslate-Releases/appcast.xml</link>
     <description>macOS · Apple Silicon</description>
     <item>
+      <title>JerryTranslate 1.0.2</title>
+      <pubDate>Mon, 16 Nov 2026 17:06:37 +0000</pubDate>
+      <sparkle:version>102</sparkle:version>
+      <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description># [⬇️ 下载安装 JerryTranslate 1.0.2](https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.2/JerryTranslate-1.0.2-arm64.zip)
+
+**适用于 Apple Silicon（M 系列芯片）Mac · macOS 26.0 或更高版本**
+
+下载后解压，将 `JerryTranslate.app` 拖入“应用程序”即可使用。安装包文件名为 `JerryTranslate-1.0.2-arm64.zip`；GitHub 自动生成的 `Source code` 是发布仓库快照，不是应用安装包。
+
+## JerryTranslate 1.0.2
+
+一款常驻 Mac 菜单栏的截图与文字翻译工具，让中文译文随手可得。
+
+- **截图翻译**：快捷键框选屏幕，识别中英文，将英文译为简体中文，已有中文原样保留。
+- **文字翻译**：直接输入、粘贴和编辑原文，也可从截图结果进入文字窗口继续翻译。
+- **本地优先**：OCR 与本地翻译在设备上完成，不保存翻译历史。
+- **在线翻译 Beta**：支持按需开启，配置访问密钥后使用。
+- **便捷操作**：支持复制原文与译文、重新截图，以及调整截图结果窗口大小。
+- **自定义快捷键**：默认使用 `⌥⌘J` 截图翻译、`⌥⌘T` 文字翻译，可在设置中修改。
+- **应用内更新**：支持手动检查更新，以及可选的每日自动检查。
+</description>
+      <enclosure url="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.2/JerryTranslate-1.0.2-arm64.zip" length="3572440" type="application/octet-stream" sparkle:edSignature="9W1RVv/CZ97muNlgUk2Dio28AC6BZ3Poez6t1Ty4pQwbASlbB0jr9PciWSStBavCbwMe9pmBesGxqpYtCCGPCw=="></enclosure>
+    </item>
+    <item>
       <title>JerryTranslate 1.0.1</title>
       <pubDate>Fri, 13 Nov 2026 17:58:52 +0000</pubDate>
       <sparkle:version>101</sparkle:version>
@@ -31,6 +57,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: xYQl3JsUl2vI0DDLiDgAHHOcIafVRPbddLzXUXcpqhP5hu1RhPgzP6YFo9xSaLeG7Rclg253+GJu3w3039JNAQ==
-length: 2534
+edSignature: JSmEeoHHDKbe2WDwVUpmVlt00So/i8CslWMvaHihV7EwqzjnSNpABoOmBZ+zl+SUEGTLDn1B635zdZynLWX/AA==
+length: 4470
 -->
