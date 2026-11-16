@@ -6,6 +6,16 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <link>https://wupinshuo.github.io/JerryTranslate-Releases/appcast.xml</link>
     <description>macOS · Apple Silicon</description>
     <item>
+      <title>JerryTranslate 1.0.3</title>
+      <pubDate>Mon, 16 Nov 2026 17:30:54 +0000</pubDate>
+      <sparkle:version>103</sparkle:version>
+      <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description sparkle:format="plain-text">• 优化在线翻译密钥引导，提示更亲切，填写入口更清楚。
+• 简化软件更新说明，聚焦本次更新内容。</description>
+      <enclosure url="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.3/JerryTranslate-1.0.3-arm64.zip" length="3572413" type="application/octet-stream" sparkle:edSignature="iQGOuRipJtUVxRFbF8I8QRkRi0tgcCQMMVMWOLLeee6U+/B4uv0xxT3HV7MQQ17IH5yxfFddgUS9Q5iXbp3MDg=="></enclosure>
+    </item>
+    <item>
       <title>JerryTranslate 1.0.2</title>
       <pubDate>Mon, 16 Nov 2026 17:06:37 +0000</pubDate>
       <sparkle:version>102</sparkle:version>
@@ -48,6 +58,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: ht6Tk83rVkGQrQnieE7i0coUd2axlMaZLi+JnhRQb2Srvc/OQpUgb02iC8eL7qylPbniOt+GmTTX4QNw4m8aBg==
-length: 3920
+edSignature: i49UA23BddLo/pzesPmphMjlOyPXyghJxU/2Jt2L1zLKRSiBOYaCBsKApmboas3Nk+VEIKEuZ1zSEKn/YG/AAA==
+length: 4733
 -->
