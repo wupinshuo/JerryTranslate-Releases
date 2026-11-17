@@ -6,6 +6,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <link>https://wupinshuo.github.io/JerryTranslate-Releases/appcast.xml</link>
     <description>macOS · Apple Silicon</description>
     <item>
+      <title>JerryTranslate 1.0.4</title>
+      <pubDate>Tue, 17 Nov 2026 14:51:15 +0000</pubDate>
+      <sparkle:version>104</sparkle:version>
+      <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description sparkle:format="plain-text">• 截图时悬停鼠标即可高亮预选窗口，单击直接截取，拖动仍可自由框选。
+• 新增随鼠标移动的坐标与操作提示，窗口显示应用名和选区尺寸，所有辅助提示均不会进入最终截图。
+• 优化菜单栏触发截图的启动顺序和光标更新，修复十字光标偶尔显示为原鼠标样式的问题。</description>
+      <enclosure url="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.4/JerryTranslate-1.0.4-arm64.zip" length="3582381" type="application/octet-stream" sparkle:edSignature="hMbHSTCbvMhlxVRA0rskSCDwASqraI5xpxH6YvOvR2C98KDpKILtVSe/pE0wkG58pUoRuuuDC+deQ/i76uPjAw=="></enclosure>
+    </item>
+    <item>
       <title>JerryTranslate 1.0.3</title>
       <pubDate>Mon, 16 Nov 2026 17:30:54 +0000</pubDate>
       <sparkle:version>103</sparkle:version>
@@ -58,6 +69,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: i49UA23BddLo/pzesPmphMjlOyPXyghJxU/2Jt2L1zLKRSiBOYaCBsKApmboas3Nk+VEIKEuZ1zSEKn/YG/AAA==
-length: 4733
+edSignature: tnfgyOCdELjMbYUPMma7kkF+XcSlq8xT4URuBuzcrsw2NNUINEC1F2+pWOv66je6ndYTccO1M9wel2knjXzXDQ==
+length: 5773
 -->
