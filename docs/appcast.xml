@@ -6,6 +6,18 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <link>https://wupinshuo.github.io/JerryTranslate-Releases/appcast.xml</link>
     <description>macOS · Apple Silicon</description>
     <item>
+      <title>JerryTranslate 1.0.5</title>
+      <pubDate>Tue, 17 Nov 2026 16:46:45 +0000</pubDate>
+      <sparkle:version>105</sparkle:version>
+      <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description sparkle:format="plain-text">• 菜单、设置和两个翻译窗口重新整理，界面更简洁。
+• 截图翻译突出显示译文，小截图不再被放大变糊。
+• 设置页不再需要滚动，快捷键和访问密钥各占一行。
+• “准备翻译资源”移到设置，改名为“离线语言包”。</description>
+      <enclosure url="https://github.com/wupinshuo/JerryTranslate-Releases/releases/download/v1.0.5/JerryTranslate-1.0.5-arm64.zip" length="3590370" type="application/octet-stream" sparkle:edSignature="/21GW3CoAwCAuH5TSP07nN3VBi/DuzaIa8KRrM9SotGavKpNr4eoQJGV7sdVoEUZXqjlzmdeMvmkpq4mm4hDCw=="></enclosure>
+    </item>
+    <item>
       <title>JerryTranslate 1.0.4</title>
       <pubDate>Tue, 17 Nov 2026 14:51:15 +0000</pubDate>
       <sparkle:version>104</sparkle:version>
@@ -69,6 +81,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     </item>
   </channel>
 </rss><!-- sparkle-signatures:
-edSignature: tnfgyOCdELjMbYUPMma7kkF+XcSlq8xT4URuBuzcrsw2NNUINEC1F2+pWOv66je6ndYTccO1M9wel2knjXzXDQ==
-length: 5773
+edSignature: b6PPWbkt6vWW6FEk1vO5D4EHHuICR7SwYbJpuquxb7nDmmxFB50x6ZvY9I23sD2kdXq/imN47M+x1vX5GajoAA==
+length: 6743
 -->
