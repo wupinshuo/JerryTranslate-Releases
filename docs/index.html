@@ -53,11 +53,8 @@
     figcaption { margin-top: 18px; text-align: center; }
     kbd { font: inherit; color: var(--text); padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); margin-right: 6px; }
     .shot { display: block; width: 100%; height: auto; box-shadow: 0 0 0 1px var(--line), 0 20px 50px var(--shadow); }
-    .shot.capture { border-radius: 2.8% / 2.4%; }
-    .shot.text { border-radius: 1.9% / 2.8%; }
-    /* Only the dark screenshots quote the novel, so the credit follows the dark theme. */
-    .credit { display: none; font-size: 12px; color: var(--muted); }
-    @media (prefers-color-scheme: dark) { .shot.capture { border-radius: 3.3% / 4.1%; } .credit, .feature .credit { display: block; margin-top: 8px; } }
+    .shot.capture { border-radius: 3.6% / 3.7%; }
+    .shot.text { border-radius: 1.9% / 2.7%; }
     .feature { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-bottom: 56px; }
     .feature h2 { margin: 0 0 10px; }
     .feature p { color: var(--muted); margin: 0; }
@@ -111,6 +108,7 @@
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after, .faq details::details-content { transition: none !important; animation: none !important; } }
     footer { border-top: 1px solid var(--line); margin-top: 44px; padding-top: 20px; color: var(--muted); font-size: 14px; text-align: center; }
     footer p { margin: 0; }
+    footer .credit { margin-top: 6px; font-size: 12px; }
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 36px; padding: 44px 0 48px; }
       .hero figure { max-width: 460px; }
@@ -148,23 +146,22 @@
         </div>
         <figure>
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="./shot-capture-dark.png" width="960" height="764">
-            <img class="shot capture" src="./shot-capture-light.png" width="1148" height="1368" alt="截图翻译窗口：显示识别出的英文原文和对应的中文结果">
+            <source media="(prefers-color-scheme: dark)" srcset="./capture-dark.png" width="890" height="874">
+            <img class="shot capture" src="./capture-light.png" width="890" height="874" alt="截图翻译窗口：显示识别出的英文原文和对应的中文结果">
           </picture>
-          <figcaption><kbd>⌥⌘J</kbd>框选屏幕上的任意区域<span class="credit">示例文字出自小说《怦然心动》（Flipped）</span></figcaption>
+          <figcaption><kbd>⌥⌘J</kbd>框选屏幕上的任意区域</figcaption>
         </figure>
       </div>
 
       <article class="feature">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="./shot-text-dark.png" width="1676" height="1114">
-          <img class="shot text" src="./shot-text-light.png" width="1676" height="1114" alt="文字翻译窗口：左侧是粘贴的英文原文，右侧是中文结果" loading="lazy">
+          <source media="(prefers-color-scheme: dark)" srcset="./text-dark.png" width="1654" height="1206">
+          <img class="shot text" src="./text-light.png" width="1654" height="1206" alt="文字翻译窗口：左侧是粘贴的英文原文，右侧是中文结果" loading="lazy">
         </picture>
         <div class="feature-text">
           <h2>粘贴，继续翻译</h2>
           <p>粘贴、编辑英文，或将截图识别出的原文带入文字窗口继续处理。</p>
           <p class="shortcut"><kbd>⌥⌘T</kbd>文字翻译</p>
-          <p class="credit">示例文字出自小说《怦然心动》（Flipped）</p>
         </div>
       </article>
 
@@ -215,6 +212,7 @@
 
     <footer>
       <p>Made by Jerry · 由奶酪驱动</p>
+      <p class="credit">截图中的示例文字出自小说《怦然心动》（Flipped）</p>
     </footer>
   </div>
 </body>
