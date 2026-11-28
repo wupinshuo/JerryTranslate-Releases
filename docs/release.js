@@ -29,7 +29,8 @@
   }
 })();
 
-// The HTML ships a working default download; this only refreshes it from the published update feed.
+// The button always downloads the newest release in the published update feed.
+// The link in the HTML is only what is left when the feed cannot be read.
 (async () => {
   const platform = navigator.userAgentData?.platform || navigator.platform || '';
   // iPadOS reports a Mac platform, so a touch screen rules it out.
@@ -54,10 +55,8 @@
     if (!/^\d+\.\d+\.\d+$/.test(version)) return;
     const downloadURL = `${releaseRoot}/download/v${version}/JerryTranslate-${version}-arm64.zip`;
     const enclosure = latest.item.querySelector(':scope > enclosure');
-    const size = Number(enclosure?.getAttribute('length'));
-    if (enclosure?.getAttribute('url') !== downloadURL || !Number.isSafeInteger(size) || size <= 0) return;
+    if (enclosure?.getAttribute('url') !== downloadURL) return;
     document.getElementById('download-link').href = downloadURL;
-    document.getElementById('download-meta').textContent = `v${version} · ${(size / 1024 / 1024).toFixed(2)} MB`;
   } catch {
     // A timeout or malformed feed leaves the default download in place.
   }
