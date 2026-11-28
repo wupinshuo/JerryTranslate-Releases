@@ -56,8 +56,16 @@
     const downloadURL = `${releaseRoot}/download/v${version}/JerryTranslate-${version}-arm64.zip`;
     const enclosure = latest.item.querySelector(':scope > enclosure');
     if (enclosure?.getAttribute('url') !== downloadURL) return;
-    document.getElementById('download-link').href = downloadURL;
+    for (const link of document.querySelectorAll('[data-download]')) link.href = downloadURL;
   } catch {
     // A timeout or malformed feed leaves the default download in place.
   }
+})();
+
+// The small button in the top bar takes over once the big one has scrolled out of view.
+(() => {
+  const top = document.getElementById('top');
+  const main = document.getElementById('download-link');
+  if (!top || !main || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([entry]) => top.classList.toggle('past-hero', !entry.isIntersecting)).observe(main);
 })();
