@@ -53,10 +53,12 @@
     if (!latest) return;
     const version = field(latest.item, 'shortVersionString');
     if (!/^\d+\.\d+\.\d+$/.test(version)) return;
-    const downloadURL = `${releaseRoot}/download/v${version}/JerryTranslate-${version}-arm64.zip`;
+    // The feed carries the update ZIP; each release also has a DMG of the same name for first installs.
+    const updateURL = `${releaseRoot}/download/v${version}/JerryTranslate-${version}-arm64.zip`;
     const enclosure = latest.item.querySelector(':scope > enclosure');
-    if (enclosure?.getAttribute('url') !== downloadURL) return;
-    for (const link of document.querySelectorAll('[data-download]')) link.href = downloadURL;
+    if (enclosure?.getAttribute('url') !== updateURL) return;
+    const installerURL = `${releaseRoot}/download/v${version}/JerryTranslate-${version}-arm64.dmg`;
+    for (const link of document.querySelectorAll('[data-download]')) link.href = installerURL;
   } catch {
     // A timeout or malformed feed leaves the default download in place.
   }
